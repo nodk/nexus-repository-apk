@@ -7,7 +7,7 @@ else
     DOCKERFILE_PATH_ARG="-f $DOCKERFILE_PATH"
 fi
 
-if [[ ${DOCKER_TAG} =~ ^(.+)$ ]] ; then
+if [[ ${DOCKER_TAG} =~ ^(.+)-.*$ ]] ; then
     nexus_ver="${BASH_REMATCH[1]}"
     docker build --build-arg NEXUS_VERSION=${nexus_ver} ${DOCKERFILE_PATH_ARG} -t $IMAGE_NAME .
 else
